@@ -19,9 +19,11 @@ RUN apt-get update \
 
 RUN yarn global add node-sass
 
+RUN useradd -ms /bin/bash -u 1000 buildbot
+
+USER buildbot:1000
+
 RUN git config --global user.email "exception0x876@gmail.com" \
     && git config --global user.name "Jenkins build bot"
-
-USER 1000:1000
 
 ENTRYPOINT []
