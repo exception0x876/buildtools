@@ -8,7 +8,7 @@ RUN php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');" \
     && rm composer-setup.php
 
 RUN apt-get update \
-    && apt-get install -y unzip git gnupg2 awscli \
+    && apt-get install -y unzip libzip-dev git gnupg2 awscli \
     && curl -sL https://deb.nodesource.com/setup_10.x | bash - \
     && apt-get install -y nodejs build-essential \
     && curl -sL https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add - \
