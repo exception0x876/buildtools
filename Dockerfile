@@ -16,6 +16,7 @@ RUN apt-get update \
     && apt-get update \
     && apt-get install -y yarn \
     && apt-get clean
+    && docker-php-ext-install zip
 
 RUN yarn global add node-sass
 
