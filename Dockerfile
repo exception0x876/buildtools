@@ -15,7 +15,7 @@ RUN apt-get update \
     && echo "deb https://dl.yarnpkg.com/debian/ stable main" > /etc/apt/sources.list.d/yarn.list \
     && apt-get update \
     && apt-get install -y yarn \
-    && apt-get clean
+    && apt-get clean \
     && docker-php-ext-install zip
 
 RUN yarn global add node-sass
