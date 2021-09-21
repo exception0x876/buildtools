@@ -1,4 +1,4 @@
-FROM php:7.4
+FROM php:7.4-buster
 ENV PATH="/var/jenkins_home/.composer/vendor/bin:${PATH}"
 ENV COMPOSER_HOME="/var/jenkins_home/.composer"
 ENV NPM_CONFIG_CACHE="/var/jenkins_home/.npm/cache"
@@ -9,17 +9,16 @@ RUN php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');" \
 
 RUN apt-get update \
     && apt-get install -y unzip libzip-dev git gnupg2 awscli \
-    && curl -sL https://deb.nodesource.com/setup_12.x | bash - \
+    && curl -sL https://deb.nodesource.com/setup_10.x | bash - \
     && apt-get install -y nodejs build-essential \
     && curl -sL https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add - \
     && echo "deb https://dl.yarnpkg.com/debian/ stable main" > /etc/apt/sources.list.d/yarn.list \
-    && /usr/bin/npm install -g gulp \
     && apt-get update \
     && apt-get install -y yarn \
     && apt-get clean \
     && docker-php-ext-install zip
 
-RUN yarn global add node-sass
+RUN yarn global add node-sass@^4.9 gulp
 
 
 RUN git config --global user.email "exception0x876@gmail.com" \
