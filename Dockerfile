@@ -1,4 +1,4 @@
-FROM php:7.3
+FROM php:7.4
 ENV PATH="/var/jenkins_home/.composer/vendor/bin:${PATH}"
 ENV COMPOSER_HOME="/var/jenkins_home/.composer"
 ENV NPM_CONFIG_CACHE="/var/jenkins_home/.npm/cache"
