@@ -16,7 +16,8 @@ RUN apt-get update \
     && apt-get update \
     && apt-get install -y yarn \
     && apt-get clean \
-    && docker-php-ext-install zip
+    && docker-php-ext-install zip \
+    && docker-php-ext-install gd
 
 RUN yarn global add node-sass@^4.9 gulp
 
